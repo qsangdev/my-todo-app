@@ -47,10 +47,7 @@ const Form = () => {
           ref={todoInput}
         />
         <DatePicker
-          onKeyDown={(event) => {
-            event.preventDefault();
-          }}
-          readOnly
+          onFocus={(e) => (e.target.readOnly = true)}
           dateFormat="dd/MM/yyyy"
           selected={startDate}
           onChange={(date) => setStartDate(date)}

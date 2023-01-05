@@ -63,10 +63,7 @@ const ListItem = ({
             ref={editRef}
           />
           <DatePicker
-            onKeyDown={(event) => {
-              event.preventDefault();
-            }}
-            readOnly
+            onFocus={(e) => (e.target.readOnly = true)}
             dateFormat="dd/MM/yyyy"
             selected={editDate}
             onChange={(date) => setEditDate(date)}
