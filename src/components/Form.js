@@ -50,6 +50,7 @@ const Form = () => {
           onKeyDown={(event) => {
             event.preventDefault();
           }}
+          readOnly
           dateFormat="dd/MM/yyyy"
           selected={startDate}
           onChange={(date) => setStartDate(date)}

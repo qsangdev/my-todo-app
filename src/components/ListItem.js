@@ -66,6 +66,7 @@ const ListItem = ({
             onKeyDown={(event) => {
               event.preventDefault();
             }}
+            readOnly
             dateFormat="dd/MM/yyyy"
             selected={editDate}
             onChange={(date) => setEditDate(date)}
