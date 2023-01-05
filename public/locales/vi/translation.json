@@ -9,5 +9,7 @@
   "days left": "ngày nữa",
   "Submit": "Thêm",
   "Enter task ...": "Nhập công việc ...",
-  "Choose your deadline day": "Chọn ngày hạn cuối"
+  "Choose your deadline": "Chọn ngày hạn cuối",
+  "Save": "Lưu",
+  "time-expired": "Đã quá thời hạn"
 }

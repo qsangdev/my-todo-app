@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaRegCircle, FaRegCheckCircle } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
 
 const ListItem = ({
   todo,
@@ -11,6 +14,8 @@ const ListItem = ({
 }) => {
   const [onEdit, setOnEdit] = useState(false);
   const [editValue, setEditValue] = useState(todo.name);
+  const [date, setDate] = useState("");
+  const [editDate, setEditDate] = useState();
   const editRef = useRef();
 
   const handleEdit = () => {
@@ -28,19 +33,20 @@ const ListItem = ({
     if (!editValue || /^\s*$/.test(editValue)) {
       alert("Please enter todo again..");
       return;
-    } else if (editValue) {
-      handleEditTodos(editValue, id);
+    } else if (editValue && editDate) {
+      handleEditTodos(editValue, editDate, id);
     } else {
       setEditValue(todo.name);
+      setEditDate(todo.date);
     }
   };
 
-  const calculateDate = (cdate) => {
-    const diff = Math.ceil(
-      (Date.parse(cdate) - new Date()) / (1000 * 60 * 60 * 24)
+  useEffect(() => {
+    const update = Math.ceil(
+      (Date.parse(todo.date) - new Date()) / (1000 * 60 * 60 * 24)
     );
-    return diff;
-  };
+    setDate(update);
+  }, [todo.date]);
 
   const { t, i18n } = useTranslation();
 
@@ -56,8 +62,14 @@ const ListItem = ({
             onChange={(e) => setEditValue(e.target.value.toLowerCase())}
             ref={editRef}
           />
+          <DatePicker
+            dateFormat="dd/MM/yyyy"
+            selected={editDate}
+            onChange={(date) => setEditDate(date)}
+            placeholderText={moment(todo.date).format("DD/MM/YYYY")}
+          />
           <button className="save-edit" onClick={() => handleSave(id)}>
-            Save
+            {t("Save")}
           </button>
         </form>
       </div>
@@ -86,8 +98,7 @@ const ListItem = ({
         <div className="item-title">{todo.name}</div>
 
         <span>
-          {calculateDate(todo.date) < 0 ? 0 : calculateDate(todo.date)}{" "}
-          {t("days left")}
+          {date <= 0 ? `${t("time-expired")}` : `${date} ${t("days left")}`}
         </span>
 
         <div className="icons" disabled={todo.complete}>

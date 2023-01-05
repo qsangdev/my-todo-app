@@ -15,11 +15,12 @@ const List = ({ checked, startDate, setStartDate }) => {
     setTodos(updatedTodos);
   };
 
-  const handleEditTodos = (editValue, id) => {
+  const handleEditTodos = (editValue, editDate, id) => {
     const newTodos = [...todos];
     newTodos.forEach((todo, index) => {
       if (index === id) {
         todo.name = editValue;
+        todo.date = editDate;
       }
     });
     setTodos(newTodos);

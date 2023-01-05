@@ -19,7 +19,11 @@ const Form = () => {
     } else {
       setTodos([
         ...todos,
-        { name: todoName, complete: false, date: startDate },
+        {
+          name: todoName,
+          complete: false,
+          date: startDate,
+        },
       ]);
       setTodoName("");
       todoInput.current.focus();
@@ -36,7 +40,7 @@ const Form = () => {
     <form className="form" onSubmit={addTodo}>
       <div className="form-input">
         <input
-          maxlength="50"
+          maxLength="50"
           type="text"
           name="todos"
           id="todos"
@@ -47,9 +51,10 @@ const Form = () => {
           ref={todoInput}
         />
         <DatePicker
+          dateFormat="dd/MM/yyyy"
           selected={startDate}
           onChange={(date) => setStartDate(date)}
-          placeholderText={t("Choose your deadline day")}
+          placeholderText={t("Choose your deadline")}
         />
       </div>
       <button>{t("Submit")}</button>

@@ -38,10 +38,11 @@ const Header = ({ checked, setChecked }) => {
               type="checkbox"
               defaultChecked={checked}
               onClick={() => setChecked(!checked)}
-            />
+            />{" "}
             {t("Not Finished Only")}
           </label>
-          {t("You have")} {todos.filter((todo) => todo.complete === false).length}{" "}
+          {t("You have")}{" "}
+          {todos.filter((todo) => todo.complete === false).length}{" "}
           {t("tasks left")}!
         </div>
       )}
