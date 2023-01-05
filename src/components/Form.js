@@ -30,10 +30,6 @@ const Form = () => {
     }
   };
 
-  useEffect(() => {
-    todoInput.current.focus();
-  });
-
   const { t, i18n } = useTranslation();
 
   return (

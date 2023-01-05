@@ -14,6 +14,7 @@ const Header = ({ checked, setChecked }) => {
     });
     setTodos(newTodos);
     setCheckAll(!checkAll);
+    
   };
 
   const { t, i18n } = useTranslation();

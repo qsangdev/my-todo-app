@@ -219,8 +219,8 @@ button:hover {
 /* Responsive */
 
 @media screen and (max-width: 500px) {
-  .form-input > input {
-    margin-right: 10px;
+  .form-input  {
+    margin: 0 10px;
   }
 
   .form > button {
@@ -235,7 +235,7 @@ button:hover {
   }
 
   #todos {
-    margin: 0;
+    margin-bottom: 5px;
   }
 }
 
