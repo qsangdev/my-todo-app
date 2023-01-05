@@ -63,6 +63,7 @@ const ListItem = ({
             ref={editRef}
           />
           <DatePicker
+            readonly="readonly"
             dateFormat="dd/MM/yyyy"
             selected={editDate}
             onChange={(date) => setEditDate(date)}

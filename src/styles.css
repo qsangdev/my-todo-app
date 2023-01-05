@@ -120,6 +120,7 @@ html,
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-left: 10px;
 }
 
 .form-input > input {
@@ -145,10 +146,13 @@ html,
   margin-top: 25px;
   margin-left: 10px;
   color: #000;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
 }
 
 .form > button:hover {
   background-color: #dcdcdc;
+  transform: translateY(-7px);
 }
 
 .languague-picker {
@@ -219,7 +223,7 @@ button:hover {
 /* Responsive */
 
 @media screen and (max-width: 500px) {
-  .form-input  {
+  .form-input {
     margin: 0 10px;
   }
 
