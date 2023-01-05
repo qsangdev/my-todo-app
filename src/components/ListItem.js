@@ -52,8 +52,8 @@ const ListItem = ({
 
   if (onEdit) {
     return (
-      <div>
-        <form onSubmit={handleSave}>
+      <form onSubmit={handleSave}>
+        <div className="form-edit">
           <input
             type="text"
             id="editValue"
@@ -63,17 +63,19 @@ const ListItem = ({
             ref={editRef}
           />
           <DatePicker
-            readonly="readonly"
+            onKeyDown={(event) => {
+              event.preventDefault();
+            }}
             dateFormat="dd/MM/yyyy"
             selected={editDate}
             onChange={(date) => setEditDate(date)}
             placeholderText={moment(todo.date).format("DD/MM/YYYY")}
           />
-          <button className="save-edit" onClick={() => handleSave(id)}>
-            {t("Save")}
-          </button>
-        </form>
-      </div>
+        </div>
+        <button className="save-edit" onClick={() => handleSave(id)}>
+          {t("Save")}
+        </button>
+      </form>
     );
   } else {
     return (

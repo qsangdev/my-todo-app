@@ -47,7 +47,9 @@ const Form = () => {
           ref={todoInput}
         />
         <DatePicker
-          readonly="readonly"
+          onKeyDown={(event) => {
+            event.preventDefault();
+          }}
           dateFormat="dd/MM/yyyy"
           selected={startDate}
           onChange={(date) => setStartDate(date)}
