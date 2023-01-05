@@ -232,6 +232,10 @@ button:hover {
     justify-content: center;
     align-items: center;
   }
+
+  #todos {
+    margin: 0;
+  }
 }
 
 @media screen and (max-width: 350px) {
@@ -243,9 +247,5 @@ button:hover {
 
   .header > label {
     border: none;
-  }
-
-  #todos {
-    margin: 0;
   }
 }
